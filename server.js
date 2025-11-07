@@ -1,1 +1,6 @@
 // 今回はクライアントサイドもルーティングもないので何もimportしない
+const kv = await Deno.openKv();
+
+await kv.set(['LDH', 'GENERATIONS'], { id: '1', NoP: 6 });
+await kv.set(['LDH', 'The RAMPAGE'], { id: '2', NoP: 16 });
+await kv.set(['LDH', 'FANTASTICS'], { id: '3', NoP: 8 });

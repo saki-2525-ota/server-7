@@ -14,3 +14,8 @@ for await (const A of ldh) {
   console.log(A.key);
   console.log(A.value);
 }
+
+const deleteList = await kv.list({ prefix: ['LDH'] });
+const atomic = kv.atomic();
+for await (const e of deleteList) atomic.delete(e.key);
+await atomic.commit();
